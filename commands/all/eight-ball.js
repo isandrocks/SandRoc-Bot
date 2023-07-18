@@ -9,8 +9,8 @@ const eightBall = new SlashCommandBuilder()
             .setMaxLength(2000)
             .setRequired(true))
     .addBooleanOption(option =>
-         option.setName('ephemeral')
-            .setDescription('Whether or not the echo should be ephemeral'));
+         option.setName('private')
+            .setDescription('Whether or not the question should be private'));
 
 const confirm = new ButtonBuilder()
     .setCustomId('confirm')
@@ -63,7 +63,7 @@ module.exports = {
         const response = await interaction.reply({
             content: `Do you want to ask the eight ball: ${interaction.options.getString('ask')}?`,
             components: [actionRow],
-            ephemeral: interaction.options.getBoolean('ephemeral'),
+            ephemeral: interaction.options.getBoolean('private'),
         });
 
         const collectorFilter = i => i.user.id === interaction.user.id;
