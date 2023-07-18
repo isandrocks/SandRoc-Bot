@@ -9,7 +9,7 @@ const eightBall = new SlashCommandBuilder()
             .setMaxLength(2000)
             .setRequired(true))
     .addBooleanOption(option =>
-         option.setName('private')
+        option.setName('private')
             .setDescription('Whether or not the question should be private'));
 
 const confirm = new ButtonBuilder()
@@ -25,41 +25,40 @@ const cancel = new ButtonBuilder()
 const actionRow = new ActionRowBuilder()
     .addComponents(confirm, cancel);
 
-const randomNumber = Math.floor(Math.random() * 8);
-let eightBallA = '';
-
-switch (randomNumber) {
-    case 0:
-        eightBallA = 'It is certain';
-        break;
-    case 1:
-        eightBallA = 'It is decidedly so';
-        break;
-    case 2:
-        eightBallA = 'Reply hazy try again';
-        break;
-    case 3:
-        eightBallA = 'Cannot predict now';
-        break;
-    case 4:
-        eightBallA = 'Do not count on it';
-        break;
-    case 5:
-        eightBallA = 'My sources say no';
-        break;
-    case 6:
-        eightBallA = 'Outlook not so good';
-        break;
-    case 7:
-        eightBallA = 'Signs point to yes';
-        break;
-}
-
 
 module.exports = {
     cooldown: 10,
     data: eightBall,
     async execute(interaction) {
+        const randomNumber = Math.floor(Math.random() * 8);
+        let eightBallA = '';
+
+        switch (randomNumber) {
+            case 0:
+                eightBallA = 'It is certain';
+                break;
+            case 1:
+                eightBallA = 'It is decidedly so';
+                break;
+            case 2:
+                eightBallA = 'Reply hazy try again';
+                break;
+            case 3:
+                eightBallA = 'Cannot predict now';
+                break;
+            case 4:
+                eightBallA = 'Do not count on it';
+                break;
+            case 5:
+                eightBallA = 'My sources say no';
+                break;
+            case 6:
+                eightBallA = 'Outlook not so good';
+                break;
+            case 7:
+                eightBallA = 'Signs point to yes';
+                break;
+        }
         const response = await interaction.reply({
             content: `Do you want to ask the eight ball: ${interaction.options.getString('ask')}?`,
             components: [actionRow],
@@ -72,7 +71,7 @@ module.exports = {
             const confirmation = await response.awaitMessageComponent({ filter: collectorFilter, time: 60000 });
 
             if (confirmation.customId === 'confirm') {
-                await confirmation.update({ content: `The Eight Ball says:  ${eightBallA}`, components: [] });
+                await confirmation.update({ content: `You asked: ${interaction.options.getString('ask')}? \nThe Eight Ball says:  ${eightBallA}`, components: [] });
 
             } else if (confirmation.customId === 'cancel') {
                 await confirmation.update({ content: 'Action cancelled', components: [] });
