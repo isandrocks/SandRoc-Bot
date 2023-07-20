@@ -14,16 +14,25 @@ module.exports = {
     cooldown: 10,
     data: clear,
     async execute(interaction) {
-        const channel = interaction.options.getChannel('channel');
-        channel.messages.fetch({ limit: 100 })
-            .then(msg => {
-                interaction.reply(`Clearing ${msg.size} messages in ${channel}`);
-                const msgArr = Array.from(msg);
-                const msgIds = msgArr.map(subArr => subArr[0]);
-                for (const id of msgIds) {
-                    channel.messages.delete(id);
-                }
-            })
-            .catch(error => console.error(error));
+        try {
+            const channel = interaction.options.getChannel('channel');
+
+            const msg = await channel.messages.fetch({ limit: 100 });
+
+            interaction.reply(`Clearing ${msg.size} messages in ${channel}`);
+
+            const msgArr = Array.from(msg);
+            const msgIds = msgArr.map(subArr => subArr[0]);
+
+            for (const id of msgIds) {
+                channel.messages.delete(id);
+            }
+
+            interaction.deleteReply();
+
+        } catch (error) {
+            console.error(`ERROR: ${error}`);
+        }
+
     },
 };
