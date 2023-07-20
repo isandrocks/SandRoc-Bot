@@ -9,6 +9,6 @@ module.exports = {
 	async execute(interaction) {
 		await interaction.reply('Pong!');
         await wait(4000);
-        await interaction.editReply('Pong, Pong!');
+        await interaction.followUp('Pong, Pong!');
 	},
 };
