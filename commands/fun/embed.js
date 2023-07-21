@@ -2,7 +2,7 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
 // inside a command, event listener, etc.
 const exampleEmbed = new EmbedBuilder()
-	.setColor(0x0099FF)
+	.setColor('#2b2d31')
 	.setTitle('Some title')
 	.setURL('https://discord.js.org/')
 	.setAuthor({ name: 'Some name', iconURL: 'https://i.imgur.com/AfFp7pu.png', url: 'https://discord.js.org' })
