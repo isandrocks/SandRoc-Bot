@@ -20,7 +20,7 @@ module.exports = {
             headers: { 'Content-Type': 'application/json', 'User-Agent': 'insomnia/9.1.0' },
             data: {
               model: 'llama3',
-              prompt: `${interaction.options.getString('input')} 2000words`,
+              prompt: `${interaction.options.getString('input')} 1950words`,
               stream: false,
             }
           };
