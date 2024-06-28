@@ -25,7 +25,7 @@ module.exports = {
             }
           };
 
-          interaction.deferReply(); // Acknowledge the interaction immediately
+        await interaction.deferReply(); // Acknowledge the interaction immediately
 
           axios.request(options)
               .then(function(response) {

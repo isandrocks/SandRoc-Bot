@@ -6,4 +6,7 @@ pending-members.json
 pending-emoji.json
 channels.json
 .eslintrc.json
+workflow_api.json
+/.venv
+/txt2img
 /db
