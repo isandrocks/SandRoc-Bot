@@ -9,4 +9,6 @@ channels.json
 workflow_api.json
 /.venv
 /txt2img
+/tts
 /db
+.env

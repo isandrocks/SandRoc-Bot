@@ -1,6 +1,0 @@
-# requirements.txt
-
-pillow
-websocket-client
-
-

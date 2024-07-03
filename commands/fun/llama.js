@@ -20,7 +20,7 @@ module.exports = {
             headers: { 'Content-Type': 'application/json', 'User-Agent': 'insomnia/9.1.0' },
             data: {
               model: 'llama3',
-              prompt: `${interaction.options.getString('input')} 1950words`,
+              prompt: `${interaction.options.getString('input')}`,
               stream: false,
             }
           };
@@ -31,7 +31,7 @@ module.exports = {
               .then(function(response) {
                   // console.log(response.data.response);
                   // Send the final response in a follow-up message
-                  interaction.followUp(`you ask the llama: ${interaction.options.getString('input')} \n\n the llama said: ${response.data.response}`);
+                  interaction.followUp(`you ask the llama: ${interaction.options.getString('input')} \n\n the llama said: ${response.data.response.slice(0, 1900)}`);
               })
               .catch(function(error) {
                   console.error(`Axios async error: ${error}`);
