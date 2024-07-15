@@ -17,20 +17,35 @@ SandRoc-Bot is a basic Discord bot that can access my locally run LLM, TTS, and 
 3. Configure the bot token:
   - Create a new Discord application and bot on the [Discord Developer Portal](https://discord.com/developers/applications).
   - Copy the bot token.
-  - Create a `.env` file in the root directory of the project.
-  - Add the following line to the `.env` file, replacing `<YOUR_BOT_TOKEN>` with your actual bot token:
+  - Create a `config.json` file in the root directory of the project.
+  - Add the following line to the `config.json` file, replacing `<YOUR_BOT_TOKEN>` with your actual bot token:
     ```
-    BOT_TOKEN=<YOUR_BOT_TOKEN>
+    "token" : "<YOUR_BOT_TOKEN>",
+    "clientId": "<YOUR_BOT_clientId>",
+    "guildId": "<YOUR_BOT_guildId>",
     ```
 
 4. Start the bot:
   ```
-  npm start
+  node index.js
   ```
 
 ## Usage
 
 To use the bot, invite it to your Discord server and run slash commands by typing `/` followed by the command name.
+
+The `llama`, `txt2img`, and `paimon_tts` commands are for my AI running locally on the same machine and will not work without some external setup.
+
+For the AI I am running:
+1. Ollama in a Docker container
+   [https://github.com/ollama/ollama](https://github.com/ollama/ollama)
+   
+2. Parler TTS. This can be set up in the bot's repository.
+   [https://huggingface.co/parler-tts/parler_tts_mini_v0.1](https://huggingface.co/parler-tts/parler_tts_mini_v0.1)
+   
+3. ComfyUI running locally. You will also need to create a `workflow_api.json` and place it in the root directory.
+   [https://github.com/comfyanonymous/ComfyUI](https://github.com/comfyanonymous/ComfyUI)
+
 
 ## Contributing
 
