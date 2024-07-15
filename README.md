@@ -18,7 +18,7 @@ SandRoc-Bot is a basic Discord bot that can access my locally run LLM, TTS, and 
   - Create a new Discord application and bot on the [Discord Developer Portal](https://discord.com/developers/applications).
   - Copy the bot token.
   - Create a `config.json` file in the root directory of the project.
-  - Add the following line to the `config.json` file, replacing `<YOUR_BOT_TOKEN>` with your actual bot token:
+  - Add the following lines to the `config.json` file, replacing `<YOUR_BOT_TOKEN>` with your actual bot token:
     ```
     {
     "token" : "<YOUR_BOT_TOKEN>",
