@@ -18,11 +18,13 @@ SandRoc-Bot is a basic Discord bot that can access my locally run LLM, TTS, and 
   - Create a new Discord application and bot on the [Discord Developer Portal](https://discord.com/developers/applications).
   - Copy the bot token.
   - Create a `config.json` file in the root directory of the project.
-  - Add the following line to the `config.json` file, replacing `<YOUR_BOT_TOKEN>` with your actual bot token:
+  - Add the following lines to the `config.json` file, replacing `<YOUR_BOT_TOKEN>` with your actual bot token:
     ```
+    {
     "token" : "<YOUR_BOT_TOKEN>",
     "clientId": "<YOUR_BOT_clientId>",
-    "guildId": "<YOUR_BOT_guildId>",
+    "guildId": "<YOUR_BOT_guildId>"
+    }
     ```
 
 4. Start the bot:
@@ -43,7 +45,7 @@ For the AI I am running:
 2. Parler TTS. This can be set up in the bot's repository.
    [https://huggingface.co/parler-tts/parler_tts_mini_v0.1](https://huggingface.co/parler-tts/parler_tts_mini_v0.1)
    
-3. ComfyUI running locally. You will also need to create a `workflow_api.json` and place it in the root directory.
+3. ComfyUI running locally. You will also need to generate a `workflow_api.json` from ComfyUI and place it in the root directory.
    [https://github.com/comfyanonymous/ComfyUI](https://github.com/comfyanonymous/ComfyUI)
 
 
