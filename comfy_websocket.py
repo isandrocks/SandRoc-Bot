@@ -61,13 +61,13 @@ def get_images(ws, prompt):
 with open('workflow_api.json', 'r', encoding='utf-8') as file:
     prompt = json.loads(file.read())
 
-#set the seed for our KSampler node
+#set the seed for our KSampler node. you will need to chage the 552:2 to the correct node id for your workflow_api.json
 prompt["552:2"]["inputs"]["seed"] = str(random.randint(100000000000000, 999999999999999))
 
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] != "":  # Check if a command-line argument was provided
         data_arg = sys.argv[1]  # Read the first command-line argument
-        prompt["475"]["inputs"]["string"] = str(data_arg)
+        prompt["475"]["inputs"]["string"] = str(data_arg) # change the 475 to your positive propmt node id from your workflow_api.json
     images = get_images(ws, prompt)
     # Save the images to files
     image_files = []
